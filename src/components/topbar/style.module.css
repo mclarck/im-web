@@ -1,0 +1,57 @@
+.TopBar {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  background: #455A64;
+  position: relative; }
+  .TopBar .brand {
+    text-decoration: none; }
+    .TopBar .brand .name {
+      font-weight: bold;
+      color: #aebfc7;
+      padding: 0 20px; }
+  .TopBar .badge {
+    font-size: 10px;
+    font-weight: bold;
+    background: #3b4c55;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    position: absolute;
+    top: 20px; }
+  .TopBar ul {
+    display: flex;
+    flex-direction: row;
+    align-items: center; }
+    .TopBar ul > li, .TopBar ul .link {
+      margin: 0;
+      padding: 0;
+      text-decoration: none;
+      outline: none;
+      list-style: none; }
+  .TopBar .link {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    color: #728f9d;
+    font-size: 23px; }
+    .TopBar .link.active {
+      color: #5a7582;
+      font-weight: bold; }
+  .TopBar .icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center; }
+
+/*# sourceMappingURL=style.module.css.map */

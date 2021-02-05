@@ -1,0 +1,17 @@
+@import "../../resources/scss/vars";
+
+.Login {
+  box-sizing: border-box;
+  .login {
+    @include flex;
+    justify-content: center;
+    height: 100%;
+  }
+  .field,
+  .submit {
+    margin-bottom: 10px;
+  }
+  .form {
+    width: 225px;
+  }
+}

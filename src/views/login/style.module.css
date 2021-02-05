@@ -1,0 +1,15 @@
+.Login {
+  box-sizing: border-box; }
+  .Login .login {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%; }
+  .Login .field,
+  .Login .submit {
+    margin-bottom: 10px; }
+  .Login .form {
+    width: 225px; }
+
+/*# sourceMappingURL=style.module.css.map */

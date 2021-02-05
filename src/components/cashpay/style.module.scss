@@ -1,0 +1,13 @@
+@import "../../resources/scss/vars";
+
+.CashPay {
+  box-sizing: border-box;
+  height: 150px;
+  @include flex;
+  flex-direction: column;
+  justify-content: space-around;
+  .location{
+    font-size: 0.8rem;
+  }
+
+}

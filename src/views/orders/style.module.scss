@@ -1,0 +1,21 @@
+.Orders {
+  box-sizing: border-box;
+
+  .operations {
+    padding: 20px 40px;
+
+    .operation{
+      margin-bottom: 20px;
+    }
+    .date{
+      font-size: 0.7rem;
+    }
+    .billing, .status{
+      margin-top: 10px;
+    }
+    .status{
+      padding: 0 20px;
+    }
+
+  }
+}

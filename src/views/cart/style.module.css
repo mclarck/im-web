@@ -1,0 +1,58 @@
+.After .content {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center; }
+  .After .content .icon {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin: 0; }
+  .After .content .message {
+    font-weight: bold; }
+  .After .content .link {
+    background: none;
+    border: none;
+    box-shadow: none;
+    outline: none;
+    cursor: pointer;
+    margin: 10px 0;
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center; }
+    .After .content .link .icon {
+      width: 32px;
+      height: 32px; }
+    .After .content .link:active {
+      outline: none; }
+
+.Cart {
+  box-sizing: border-box; }
+  .Cart .content {
+    width: 80%;
+    margin: 0 auto; }
+  .Cart .cart,
+  .Cart .billing {
+    padding: 20px; }
+  .Cart .cart {
+    padding: 20px; }
+  .Cart .billing {
+    margin-bottom: 20px; }
+  .Cart .payment,
+  .Cart .bill {
+    margin-bottom: 20px; }
+
+@media screen and (min-device-width: 768px) {
+  .Cart .content {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr 250px);
+    width: 60vw;
+    overflow: hidden; } }
+
+/*# sourceMappingURL=style.module.css.map */

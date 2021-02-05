@@ -1,0 +1,11 @@
+.Map {
+  box-sizing: border-box;
+  padding: 0 10px;
+
+  > div:first-of-type {
+    height: 200px;
+  }
+  .field { 
+    padding: 10px;
+  }
+}

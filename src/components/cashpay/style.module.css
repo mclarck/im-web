@@ -1,0 +1,12 @@
+.CashPay {
+  box-sizing: border-box;
+  height: 150px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-around; }
+  .CashPay .location {
+    font-size: 0.8rem; }
+
+/*# sourceMappingURL=style.module.css.map */

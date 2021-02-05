@@ -1,0 +1,51 @@
+.PopMenu {
+  position: relative; }
+  .PopMenu .icon {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    height: 50px;
+    color: #728f9d;
+    font-size: 23px;
+    cursor: pointer;
+    border: none;
+    background: none;
+    outline: none; }
+    .PopMenu .icon:active {
+      outline: none; }
+  .PopMenu .overlay {
+    min-width: 200px;
+    background: #fff;
+    border: 0.5px solid #f2f2f2;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 999; }
+    .PopMenu .overlay > .items {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      flex-direction: column; }
+      .PopMenu .overlay > .items > .item, .PopMenu .overlay > .items .link {
+        margin: 0;
+        text-decoration: none;
+        outline: none;
+        list-style: none; }
+    .PopMenu .overlay .item {
+      height: 40px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      width: 100%;
+      cursor: pointer; }
+      .PopMenu .overlay .item:hover {
+        background: #fafafa; }
+    .PopMenu .overlay .link {
+      box-sizing: border-box;
+      color: #222;
+      font-size: 0.9rem;
+      padding: 0 20px; }
+
+/*# sourceMappingURL=style.module.css.map */

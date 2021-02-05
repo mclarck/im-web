@@ -1,0 +1,14 @@
+.Orders {
+  box-sizing: border-box; }
+  .Orders .operations {
+    padding: 20px 40px; }
+    .Orders .operations .operation {
+      margin-bottom: 20px; }
+    .Orders .operations .date {
+      font-size: 0.7rem; }
+    .Orders .operations .billing, .Orders .operations .status {
+      margin-top: 10px; }
+    .Orders .operations .status {
+      padding: 0 20px; }
+
+/*# sourceMappingURL=style.module.css.map */

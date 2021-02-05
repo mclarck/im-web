@@ -1,0 +1,11 @@
+.Error404 {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center; }
+  .Error404 .message {
+    font-weight: bold; }
+
+/*# sourceMappingURL=style.module.css.map */

@@ -1,0 +1,54 @@
+.Register,
+.After {
+  box-sizing: border-box; }
+  .Register .register,
+  .Register .after,
+  .After .register,
+  .After .after {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 100%; }
+  .Register .after,
+  .After .after {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-direction: column; }
+    .Register .after .icon,
+    .After .after .icon {
+      width: 50px;
+      height: 50px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center; }
+    .Register .after .message,
+    .After .after .message {
+      font-weight: 300; }
+    .Register .after .link,
+    .After .after .link {
+      padding: 10px 0;
+      font-size: 0.7rem; }
+  .Register .field,
+  .Register .submit,
+  .After .field,
+  .After .submit {
+    margin-bottom: 15px; }
+  .Register .form,
+  .After .form {
+    width: 300px;
+    margin: 0 auto; }
+  .Register .grid-2,
+  .After .grid-2 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr 1fr);
+    grid-gap: 10px; }
+  .Register .grid-3,
+  .After .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr 1fr 1fr);
+    grid-gap: 10px; }
+
+/*# sourceMappingURL=style.module.css.map */
