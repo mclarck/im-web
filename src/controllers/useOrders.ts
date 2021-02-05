@@ -7,9 +7,11 @@ import useUrl from "../services/useUrl";
 import {useParams, useRouteMatch} from "react-router-dom";
 import {Manager} from "socket.io-client";
 import conf from "../resources/conf";
+import translations from "../resources/translations";
+import moment from "moment";
 
 const useOrders = () => {
-    const {t, lang} = useLocale()
+    const {t, lang} = useLocale(translations)
     const {url} = useRouteMatch()
     const {company} = useParams<any>()
     const [getClient, {
@@ -22,6 +24,9 @@ const useOrders = () => {
     const {getUrl} = useUrl()
     const store = new Store(company)
     const operations = auth?.client?.operations?.edges
+    const getDate = (date: string) => {
+        return moment(date).locale(lang).calendar()
+    }
 
     const loadClient = useCallback(() => {
         const item = store.getVal("auth")
@@ -42,7 +47,7 @@ const useOrders = () => {
     }, [loadClient, url, message])
 
     if (errorClient) console.log(errorClient.message)
-    return {t, lang, auth: auth?.client, operations, getClient, getUrl, file, loading: loadingClient}
+    return {t, lang, getDate, auth: auth?.client, operations, getClient, getUrl, file, loading: loadingClient}
 }
 
 export default useOrders

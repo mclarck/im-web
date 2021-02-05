@@ -1,3 +1,5 @@
+@import "../../resources/scss/vars";
+
 .Orders {
   box-sizing: border-box;
 
@@ -9,6 +11,16 @@
     }
     .date{
       font-size: 0.7rem;
+      @include flex;
+      .icon{
+        width: 25px;
+        height: 25px;
+        @include flex;
+        justify-content: center;
+      }
+      .calendar{
+        text-transform: capitalize;
+      }
     }
     .billing, .status{
       margin-top: 10px;

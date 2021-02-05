@@ -51,4 +51,9 @@
     grid-template-columns: repeat(1, 1fr 1fr 1fr);
     grid-gap: 10px; }
 
+@media screen and (min-device-width: 768px) {
+  .Register .form, .After .form {
+    width: 350px;
+    margin: 0 auto; } }
+
 /*# sourceMappingURL=style.module.css.map */

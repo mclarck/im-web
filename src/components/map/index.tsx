@@ -2,9 +2,10 @@ import React from "react";
 import { Mapview, Modal, Button } from "im-ui-core";
 import { useLocale } from "im-hooks";
 import style from "./style.module.css";
+import translations from "../../resources/translations";
 
 const Map = (props: any) => {
-  const { t } = useLocale();
+  const { t } = useLocale(translations);
   return (
     <Modal
       onClose={props.onclose}

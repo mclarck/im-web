@@ -49,3 +49,11 @@
     grid-gap: 10px;
   }
 }
+@media screen and (min-device-width: 768px) {
+  .Register,.After{
+    .form {
+      width: 350px;
+      margin: 0 auto;
+    }
+  }
+}

@@ -9,10 +9,11 @@ import {RestClient, Store} from "../services/database";
 import moment from "moment";
 import _ from "lodash";
 import useNotification from "../services/useNotify";
+import translations from "../resources/translations";
 
 
 const useChat = () => {
-    const {t} = useLocale()
+    const {t, lang} = useLocale(translations)
     const {company} = useParams<any>()
     const [getClient, {data: auth, loading: loadingClient, error: errorClient}]: any = useLazyQuery(GET_CLIENT);
     const support = `${company}@${t("support")}`
@@ -25,7 +26,7 @@ const useChat = () => {
     const mapMsg = _.map(msg, (m) => {
         if (!auth?.client) return []
         const isSender = m?.sender?.phone === auth?.client?.phone
-        const created = moment(m?.created).calendar()
+        const created = moment(m?.created).locale(lang).calendar()
         return {...m, isSender, created}
     })
 

@@ -6,9 +6,10 @@ import {useLazyQuery} from "@apollo/client";
 import useCartModel, {GET_CART_ITEMS} from "../model/cart";
 import {GET_CLIENT} from "../model/client/queries";
 import {useParams} from "react-router-dom";
+import translations from "../resources/translations";
 
 const useCart = () => {
-    const {t} = useLocale()
+    const {t} = useLocale(translations)
     const {company} = useParams<any>()
     const cart = useCartModel()
     const [getCart, {data, error}] = useLazyQuery(GET_CART_ITEMS);

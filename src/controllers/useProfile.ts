@@ -4,9 +4,10 @@ import {useLazyQuery} from "@apollo/client";
 import {GET_CLIENT} from "../model/client/queries";
 import {Store} from "../services/database";
 import {useParams} from "react-router-dom";
+import translations from "../resources/translations";
 
 const useProfile = ()=>{
-    const {t} = useLocale()
+    const {t} = useLocale(translations)
     const {company} = useParams<any>()
     const [getClient, {data: auth, loading: loadingClient, error: errorClient}]: any = useLazyQuery(GET_CLIENT);
 

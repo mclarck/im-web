@@ -3,9 +3,10 @@ import useLink from "../../services/useLink";
 import useUrl from "../../services/useUrl";
 import {useCallback, useEffect, useState} from "react";
 import {useRef} from "react";
+import translations from "../../resources/translations";
 
 const usePopMenu = () => {
-    const {t} = useLocale()
+    const {t} = useLocale(translations)
     const {goTo} = useLink()
     const {getUrl} = useUrl()
     const [shown, showMenu] = useState<boolean>(false)

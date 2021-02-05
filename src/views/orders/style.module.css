@@ -5,7 +5,19 @@
     .Orders .operations .operation {
       margin-bottom: 20px; }
     .Orders .operations .date {
-      font-size: 0.7rem; }
+      font-size: 0.7rem;
+      display: flex;
+      flex-direction: row;
+      align-items: center; }
+      .Orders .operations .date .icon {
+        width: 25px;
+        height: 25px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center; }
+      .Orders .operations .date .calendar {
+        text-transform: capitalize; }
     .Orders .operations .billing, .Orders .operations .status {
       margin-top: 10px; }
     .Orders .operations .status {

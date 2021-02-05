@@ -7,10 +7,11 @@ import _ from "lodash";
 import useUrl from "../services/useUrl";
 import usePath from "../services/usePath";
 import {useParams} from "react-router-dom";
+import translations from "../resources/translations";
 
 
 const useAccount = () => {
-    const {t} = useLocale()
+    const {t} = useLocale(translations)
     const {company} = useParams<any>()
     const [getClient, {data: auth, loading: loadingClient, error: errorClient}]: any = useLazyQuery(GET_CLIENT);
     const file = useFile()

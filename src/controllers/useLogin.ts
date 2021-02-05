@@ -5,9 +5,10 @@ import {useContext, useState} from "react"
 import {RestClient, Store} from "../services/database"
 import useValidator from "../services/validator"
 import {useParams} from "react-router-dom";
+import translations from "../resources/translations";
 
 const useLogin = (arg?: any) => {
-    const {t} = useLocale()
+    const {t} = useLocale(translations)
     const {company} = useParams<any>()
     const {goTo} = useLink()
     const {register, handleSubmit} = useForm()
