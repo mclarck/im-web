@@ -6,7 +6,7 @@ import translations from "../resources/translations";
 const useClientOrderView = (cart: any[]) => {
     const {t} = useLocale(translations)
     const {subTotal, shipment, amount} = useCalculator(_.map(cart, (o) => o.node))
-    const [state, setstate] = useState<any>("preparing")
+    const [state] = useState<any>("preparing")
     const bills: any = [
         {name: t("Subtotal"), value: subTotal()},
         {name: t("Shipping"), value: shipment()},
