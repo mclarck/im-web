@@ -1,0 +1,16 @@
+version: '3.7'
+services:
+    market:
+        build:
+            context: ./
+            dockerfile: Dockerfile
+        container_name: market
+        volumes:
+            - ./apache/html:/var/www/html
+        restart: always
+        ports:
+            - 80:80
+        expose:
+            - 80
+volumes:
+    market:
