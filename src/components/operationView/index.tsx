@@ -3,19 +3,41 @@ import useOperationView from "../../controllers/useOperationView";
 import {Cart} from "im-ui-core";
 import {RiShoppingCart2Line} from "react-icons/ri"
 import {BiListCheck} from "react-icons/bi"
+import {GrFormTrash} from "react-icons/gr"
 import {GiCheckeredFlag} from "react-icons/gi"
 import {MdClose, MdMotorcycle} from "react-icons/md";
 
 const OperationView = (props: any) => {
     const {update, bills, status, cart, bounds, orderProps} = useOperationView(props)
-    const actions = [
-        {icon: <MdClose/>, onClick: () => update("canceled")},
-        {icon: <MdMotorcycle/>, onClick: () => update("shipping")}
-    ]
-    if (status === "shipping") actions.push(
-        {icon: <BiListCheck/>, onClick: () => update("completed")},
-        {icon: <GiCheckeredFlag/>, onClick: () => update("arrived")},
-    )
+    const actions = []
+
+    switch (status) {
+        case "shipping":
+            actions.push(
+                {icon: <MdClose/>, onClick: () => update("canceled")},
+                {icon: <BiListCheck/>, onClick: () => update("completed")},
+                {icon: <GiCheckeredFlag/>, onClick: () => update("arrived")},
+            )
+            break;
+        case "completed":
+            actions.push(
+                {icon: <GrFormTrash/>, onClick: () => update("removed")},
+                {icon: <MdMotorcycle/>, onClick: () => update("shipping")},
+            )
+            break;
+        case "removed":
+            actions.push(
+                {icon: <MdMotorcycle/>, onClick: () => update("shipping")},
+            )
+            break;
+        default:
+            actions.push(
+                {icon: <MdClose/>, onClick: () => update("canceled")},
+                {icon: <GrFormTrash/>, onClick: () => update("removed")},
+                {icon: <MdMotorcycle/>, onClick: () => update("shipping")},
+            )
+            break
+    }
     return (
         <Cart
             bounds={bounds}

@@ -15,7 +15,6 @@ const useSetting = () => {
     }, [loadSetting]);
 
     if (error) console.log(error.message);
-    if (data?.setting) console.log(data.setting);
     return {
         bounds,
         loading,

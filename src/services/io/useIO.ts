@@ -14,9 +14,13 @@ const useIO = () => {
     const store = new Store(company)
     const rest = useContext(RestClient)
 
-    const playNotice = ()=>{
-        const sound = new Howl({ src: ['/audio/system.mp3'] });
-        sound.play()
+    const playMsg = ()=>{
+        const msg = new Howl({ src: ['/audio/message.mp3','/audio/message.ogg','/audio/message.m4r'] });
+        msg.play()
+    }
+    const playSystem = ()=>{
+        const system = new Howl({ src: ['/audio/system.mp3','/audio/system.ogg','/audio/system.m4r'] });
+        system.play()
     }
     const onError = (e: any) => console.log(e.message)
     const sendMsgToServer = async (msg: any) => {
@@ -28,7 +32,6 @@ const useIO = () => {
         }
     }
     const onJoin = (payload: any) => {
-        console.log('joined from chat')
         notice.addNotification({
             message: `new user joined chat`,
             type: "info",
@@ -43,7 +46,7 @@ const useIO = () => {
         store.addVal("chat", payload)
         const notify = () => {
             if (payload?.sender?.phone !== company) {
-                playNotice()
+                playMsg()
                 notice.addNotification({
                     title: `new message from @${payload?.sender?.username}`,
                     message: `${payload?.content}`,
@@ -60,7 +63,7 @@ const useIO = () => {
     const onAnalEvent = (payload: any) => {
         const status = payload?.content?.status
         const id = payload?.content?.id
-        playNotice()
+        // playSystem()
         notice.addNotification({
             title: `${payload?.sender?.username}`,
             message: `order ${id} is ${status}`,
