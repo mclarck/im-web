@@ -43,7 +43,6 @@ const useIO = () => {
     const handleChat = (socket: SocketIOClient.Socket) => {
         // we need to join a room
         // client need to join his phone
-        console.log(sender)
         socket.emit("join", {room: sender?.phone})
         socket.emit("register", {content: sender})
         socket.on("join", onJoin)
