@@ -6,6 +6,7 @@
   display: grid;
   grid-template-rows: repeat(1, auto 1fr);
   height: 100%;
+  overflow: hidden;
 
   .header {
     box-sizing: border-box;
@@ -14,5 +15,6 @@
   .content {
     display: grid;
     grid-template-rows: repeat(1, auto 1fr);
+    overflow: hidden;
   }
 }

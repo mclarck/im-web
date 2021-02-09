@@ -12,6 +12,7 @@ const Chats = (props: any) => {
         <div className={style.Chats}>
             <div className={style.users}>
                 {_.map(onLines, (onLine, idx) => {
+                    if (!onLine.phone) return null
                     return (
                         <div key={idx} className={style.user}>
                             <div className={style.avatar} onClick={() => pickDest(onLine)}><Avatar/></div>

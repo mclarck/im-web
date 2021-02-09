@@ -1,9 +1,11 @@
 import _ from "lodash";
 import {useCalculator, useFile, useLocale} from "im-hooks";
-import {useContext, useState} from "react";
+import React, {useContext, useState} from "react";
 import {RestClient} from "../services/database";
 import {AnalyticIO} from "../services/io/IOProvider";
 import {useParams} from "react-router-dom";
+import {MdClose, MdMotorcycle} from "react-icons/md";
+import {RiShoppingCart2Line} from "react-icons/ri"
 
 const useOperationView = (props?: any) => {
     const {t} = useLocale();
@@ -54,7 +56,8 @@ const useOperationView = (props?: any) => {
         }
     };
 
-    return {update, bills, cart: props?.cart, bounds, orderProps}
+
+    return {update, bills, status: props?.cart?.status, cart: props?.cart, bounds, orderProps}
 }
 
 export default useOperationView
