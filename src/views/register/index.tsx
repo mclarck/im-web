@@ -9,6 +9,7 @@ import AfterRegister from "./after";
 const Register = (props: any) => {
     const {
         t,
+        bounds,
         error,
         registered,
         resetAddress,
@@ -101,6 +102,7 @@ const Register = (props: any) => {
             </div>
             {preview && !confirmed && (
                 <Map
+                    bounds={bounds}
                     address={{location: preview}}
                     onconfirm={confirm}
                     onclose={onclose}

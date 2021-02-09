@@ -33,7 +33,7 @@ const useIO = () => {
         if (!store.hasVal("chat")) store.setVal("chat", [])
         store.addVal("chat", payload)
         const notify = () => {
-            if (payload?.sender?.phone !== company) {
+            if (payload?.sender?.phone === company) {
                 playNotice()
             }
         }
