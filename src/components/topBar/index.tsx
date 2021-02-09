@@ -2,12 +2,11 @@ import React from "react";
 import {Link, NavLink} from "react-router-dom";
 import useTopBar from "../../controllers/useTopBar";
 import style from "./style.module.css";
-import {BiCartAlt} from "react-icons/bi";
 import {IoMdSettings} from "react-icons/io";
 import PopMenu from "../popMenu";
 
 const TopBar = (props: any) => {
-    const {getUrl, company, hasOrder, cartSize} = useTopBar();
+    const {getUrl, company} = useTopBar();
     return (
         <nav className={style.TopBar}>
             <ul>

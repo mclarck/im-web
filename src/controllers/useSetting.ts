@@ -18,6 +18,7 @@ const useSetting = () => {
     if (data?.setting) console.log(data.setting);
     return {
         bounds,
+        loading,
         location: data?.setting?.address?.location,
         address: data?.setting?.address,
         setting: data?.setting,

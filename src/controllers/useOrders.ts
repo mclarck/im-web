@@ -1,7 +1,7 @@
 import {useFile, useLocale} from "im-hooks";
 import {useLazyQuery} from "@apollo/client";
 import {GET_FULL_CLIENT} from "../model/client/queries";
-import {useCallback, useEffect, useRef, useState} from "react";
+import {useCallback, useEffect, useState} from "react";
 import {Store} from "../services/database";
 import useUrl from "../services/useUrl";
 import {useParams, useRouteMatch} from "react-router-dom";

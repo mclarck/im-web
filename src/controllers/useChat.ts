@@ -9,7 +9,6 @@ import {ChatIO} from "../services/io/IOProvider";
 
 
 const useChat = () => {
-
     const {t, lang} = useLocale(translations)
     const {company} = useParams<any>()
     const support = `${company}@${t("support")}`
@@ -90,8 +89,7 @@ const useChat = () => {
         onLines,
         send,
         filterMsg,
-        msg: msg,
-        mapped: mapMsg(),
+        msg,
         mapMsg,
         clearMsg,
         title: dest ? `${dest.username}@${dest.phone}` : support,

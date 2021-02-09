@@ -11,7 +11,7 @@ import Pending from "../operations/pending";
 
 
 const Sales = (props: any) => {
-    const {t, loading, getPath, getUrl} = useSales()
+    const {t, loading, getPath} = useSales()
     return (
         <div className={style.Sales}>
             <div className={style.header}>

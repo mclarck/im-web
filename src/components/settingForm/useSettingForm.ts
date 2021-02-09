@@ -1,4 +1,4 @@
-import {useDb, useLocale, useSanitizer} from "im-hooks";
+import {useLocale, useSanitizer} from "im-hooks";
 import {useForm} from "react-hook-form";
 import _ from "lodash";
 import {OpenStreetMapProvider} from "leaflet-geosearch";
