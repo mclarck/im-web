@@ -7,7 +7,7 @@ import {Account, Cart, Login, Logout, Register, Stocks} from "./views";
 import {SocketIOProvider} from "./services/io";
 
 function App() {
-    const {getPath, getUrl, rest, apollo} = useApp();
+    const {getPath, getUrl,  rest, apollo} = useApp();
     return (
         <GqlProvider apollo={apollo}>
             <RestProvider rest={rest}>

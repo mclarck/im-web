@@ -37,6 +37,7 @@ const useOrders = () => {
         {state: "active", label: t("Preparing")},
         {state: "shipping", label: t("On way")},
         {state: "arrived", label: t("Arrived")},
+        {state: "completed", label: t("Completed")},
         {state: "canceled", label: t("Canceled")},
     ]
 

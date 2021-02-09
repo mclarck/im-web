@@ -12,19 +12,21 @@ const Orders = (props: any) => {
             <div className={style.operations}>
                 {_.map(operations, (o: any, idx) => {
                     const operation = o.node;
-                    if (!["active", "shipping", "arrived", "canceled"].includes(operation.status)) return null
-                    return (
-                        <div key={idx} className={style.operation}>
-                            <div className={style.date}>
-                                <div className={style.icon}><BiCalendarEvent/></div>
-                                <div className={style.calendar}>{getDate(operation?.created)}</div>
+                    if (["active", "shipping", "arrived", "canceled", "completed"].includes(operation.status)) {
+                        return (
+                            <div key={idx} className={style.operation}>
+                                <div className={style.date}>
+                                    <div className={style.icon}><BiCalendarEvent/></div>
+                                    <div className={style.calendar}>{getDate(operation?.created)}</div>
+                                </div>
+                                <div className={style.cart}>
+                                    <ClientOrderView states={states} state={operation?.status}
+                                                     cart={operation?.orders?.edges}/>
+                                </div>
                             </div>
-                            <div className={style.cart}>
-                                <ClientOrderView states={states} state={operation?.status}
-                                                 cart={operation?.orders?.edges}/>
-                            </div>
-                        </div>
-                    )
+                        )
+                    }
+                    return null
                 })}
             </div>
         </div>
