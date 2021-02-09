@@ -36,5 +36,10 @@
   "Register": "Register",
   "Invalid Address": "Invalid Address",
   "Invalid User": "Invalid User",
-  "Update": "Update"
+  "Update": "Update",
+  "Canceled": "Canceled",
+  "Completed": "Completed",
+  "Confirm Address": "Confirm Address",
+  "Your have been registered": "Your have been registered!",
+  "Continue shopping": "Continue shopping!"
 }

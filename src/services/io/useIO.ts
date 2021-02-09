@@ -14,7 +14,7 @@ const useIO = () => {
     const [sender] = useState<any>(() => store.getVal("auth"))
 
     const playNotice = () => {
-        const sound = new Howl({src: ['/audio/system.mp3']});
+        const sound = new Howl({src: ['/audio/message.mp3','/audio/message.ogg','/audio/message.m4r']});
         sound.play()
     }
     const onError = (e: any) => console.log(e.message)
@@ -27,22 +27,18 @@ const useIO = () => {
         }
     }
     const onJoin = (payload: any) => {
-        console.log('joined from chat')
     }
     const onMsg = (payload: any) => {
         if (!store.hasVal("chat")) store.setVal("chat", [])
         store.addVal("chat", payload)
         const notify = () => {
-            if (payload?.sender?.phone === company) {
-                playNotice()
-            }
+            if (payload?.sender?.phone === company) { playNotice()  }
         }
         sendMsgToServer(payload).then(res => notify()).catch(onError)
     }
     const onAnalEvent = (payload: any) => {
         const status = payload?.content?.status
         const id = payload?.content?.id
-        playNotice()
     }
     const handleChat = (socket: SocketIOClient.Socket) => {
         // we need to join a room

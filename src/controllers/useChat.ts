@@ -66,7 +66,6 @@ const useChat = () => {
         return () => {
             if (chatIO) {
                 chatIO.off("message", onMsg)
-                console.log('remove listeners')
             }
         }
     }, [])
