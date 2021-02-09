@@ -16,12 +16,6 @@ const PopMenu = (props: any) => {
                             <Link className={style.link} to={getUrl("/account/profile")}>{t("Profile")}</Link>
                         </li>
                         <li className={style.item}>
-                            <Link className={style.link} to={getUrl("/account/chat")}>{t("Chat")}</Link>
-                        </li>
-                        <li className={style.item}>
-                            <Link className={style.link} to={getUrl("/account/orders")}>{t("My Orders")}</Link>
-                        </li>
-                        <li className={style.item}>
                             <Link className={style.link} to={getUrl("/logout")}>{t("Logout")}</Link>
                         </li>
                     </ul>

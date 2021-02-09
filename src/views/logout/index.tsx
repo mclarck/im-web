@@ -1,8 +1,9 @@
 import useLogout from "../../controllers/useLogout";
+import React from "react"
 
 const Logout = () => {
     useLogout()
-    return <div />
+    return <div/>
 }
 
 export default Logout

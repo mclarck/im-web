@@ -1,0 +1,37 @@
+.Chats {
+  box-sizing: border-box;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(1, 200px 1fr);
+  overflow: hidden; }
+  .Chats .chat {
+    overflow: hidden; }
+  .Chats .users {
+    padding: 20px;
+    height: 100%;
+    overflow: auto; }
+  .Chats .user {
+    width: 100%;
+    margin-bottom: 10px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(1, auto 1fr);
+    align-items: center; }
+    .Chats .user .infos {
+      text-align: left;
+      font-size: 0.6rem;
+      border: none;
+      background: none;
+      outline: none;
+      cursor: pointer;
+      margin: 0;
+      padding: 0; }
+      .Chats .user .infos:hover {
+        color: #999999; }
+      .Chats .user .infos:active {
+        outline: none; }
+      .Chats .user .infos .username {
+        font-weight: bold;
+        font-size: 0.8rem; }
+
+/*# sourceMappingURL=style.module.css.map */

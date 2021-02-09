@@ -1,7 +1,7 @@
 import React from 'react'
 import _ from "lodash";
 import style from "../../views/orders/style.module.css";
-import OrderView from "../orderview";
+import OrderView from "../orderView";
 import useClientOrderView from "../../controllers/useClientOrderView";
 import {Billing, OrderState} from "im-ui-core";
 

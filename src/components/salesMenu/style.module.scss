@@ -1,0 +1,15 @@
+@import "../../resources/scss/vars";
+
+.Menu {
+  box-sizing: border-box;
+  @include menubar;
+  background: transparent;
+
+  .link {
+    color: darken($light, 20);
+
+    &.active {
+      color: lighten($dark, 20);
+    }
+  }
+}

@@ -2,21 +2,21 @@
   box-sizing: border-box;
   display: grid;
   grid-template-rows: repeat(1, auto 1fr);
-  overflow: hidden; }
+  overflow: hidden;
+  height: 100%; }
   .Stocks .content {
-    padding: 20px 0;
+    padding: 20px;
     overflow: auto; }
   .Stocks .items {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(130px, 140px));
     grid-gap: 10px;
-    justify-content: center;
     align-items: stretch;
     grid-auto-flow: dense; }
 
 @media screen and (min-device-width: 768px) {
   .Stocks .header, .Stocks .content {
-    width: 70vw;
+    width: 100%;
     margin: 0 auto; } }
 
 /*# sourceMappingURL=style.module.css.map */

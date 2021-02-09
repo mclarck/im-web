@@ -1,0 +1,37 @@
+.stockForm {
+  box-sizing: border-box;
+  padding: 20px;
+  display: grid;
+  grid-template-columns: repeat(1, auto 250px);
+  align-items: stretch;
+  grid-gap: 20px;
+  height: 100%;
+  overflow: hidden; }
+  .stockForm .fields {
+    height: 100%;
+    overflow: auto; }
+  .stockForm .filepicker {
+    box-sizing: border-box; }
+  .stockForm .grid {
+    display: grid;
+    align-items: center;
+    grid-gap: 10px; }
+    .stockForm .grid-1-2 {
+      grid-template-columns: repeat(1, 1fr 1fr); }
+    .stockForm .grid-1-3 {
+      grid-template-columns: repeat(1, 1fr 1fr 1fr); }
+    .stockForm .grid-1-4 {
+      grid-template-columns: repeat(1, 1fr 1fr 1fr 1fr); }
+  .stockForm .field,
+  .stockForm .submit {
+    margin-bottom: 5px; }
+  .stockForm .submit {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 10px; }
+    .stockForm .submit > * {
+      width: 150px; }
+
+/*# sourceMappingURL=style.module.css.map */

@@ -33,5 +33,53 @@ const GET_STOCKS = gql`
         }
     }`
 
+const GET_FULL_STOCKS = gql`
+    query GetFullStocks {
+        stocks {
+            totalCount
+            edges {
+                node {
+                    id
+                    created
+                    status
+                    quantity
+                    quantityAv
+                    price
+                    oldPrice
+                    tax
+                    shipping
+                    shippingAdditional
+                    devise
+                    fraction
+                    entry {
+                        id
+                        branch
+                        receipt
+                        sent
+                        stocked
+                        provider {
+                            id
+                            name
+                            alias
+                        }
+                    }
+                    file {
+                        id
+                        uri
+                        path
+                        name
+                    }
+                    product {
+                        id
+                        specie
+                        mark
+                        variety
+                        container
+                    }
+                }
+            }
+        }
+    }`
 
-export {GET_STOCKS}
+
+export {GET_STOCKS, GET_FULL_STOCKS}

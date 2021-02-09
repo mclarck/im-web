@@ -1,0 +1,13 @@
+.Setting {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr 300px);
+  height: 100%; }
+  .Setting .map {
+    height: 100%;
+    padding: 20px;
+    overflow: hidden; }
+  .Setting .form {
+    padding: 20px;
+    overflow: auto; }
+
+/*# sourceMappingURL=style.module.css.map */

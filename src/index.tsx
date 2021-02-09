@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import {BrowserRouter as Router, Route, Switch} from "react-router-dom";
+import 'react-notifications-component/dist/theme.css'
 import "im-ui-core/dist/index.css"
 import "im-ui-chat/dist/index.css"
 import "./index.css";

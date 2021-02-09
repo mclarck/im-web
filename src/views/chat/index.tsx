@@ -8,7 +8,7 @@ const Chat = (props: any) => {
     const {support, clearMsg, msg, send} = useChat()
     return (
         <div className={style.Chat}>
-            <ChatBox icon={<BiSupport/>} title={support} messages={msg} onClose={clearMsg} onSend={send}/>
+            <ChatBox icon={<BiSupport/>} title={support} messages={msg()} onClose={clearMsg} onSend={send}/>
         </div>
     );
 };
