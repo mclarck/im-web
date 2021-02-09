@@ -6,7 +6,8 @@ import {useRef} from "react";
 import translations from "../../resources/translations";
 
 const usePopMenu = () => {
-    const {t} = useLocale(translations)
+    const {locale} = useParams<any>()
+    const {t, lang} = useLocale(translations, locale)
     const {goTo} = useLink()
     const {getUrl} = useUrl()
     const [shown, showMenu] = useState<boolean>(false)

@@ -16,7 +16,7 @@
     "@types/react-router-dom": "^5.1.7",
     "graphql": "^15.5.0",
     "graphql-request": "^3.4.0",
-    "im-hooks": "^1.0.44",
+    "im-hooks": "^1.0.45",
     "im-ui-chat": "^1.0.15",
     "im-ui-core": "^1.0.33",
     "react": "^17.0.1",

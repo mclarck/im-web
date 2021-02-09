@@ -2,9 +2,11 @@ import {useCalculator, useLocale} from "im-hooks";
 import _ from "lodash";
 import {useState} from "react";
 import translations from "../resources/translations";
+import {useParams} from "react-router-dom";
 
 const useClientOrderView = (cart: any[]) => {
-    const {t} = useLocale(translations)
+    const {locale} = useParams<any>()
+    const {t, lang} = useLocale(translations, locale)
     const {subTotal, shipment, amount} = useCalculator(_.map(cart, (o) => o.node))
     const [state] = useState<any>("preparing")
     const bills: any = [

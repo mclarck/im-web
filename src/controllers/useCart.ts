@@ -9,7 +9,8 @@ import {useParams} from "react-router-dom";
 import translations from "../resources/translations";
 
 const useCart = () => {
-    const {t} = useLocale(translations)
+    const {locale} = useParams<any>()
+    const {t, lang} = useLocale(translations, locale)
     const {company} = useParams<any>()
     const cart = useCartModel()
     const [getCart, {data, error}] = useLazyQuery(GET_CART_ITEMS);

@@ -4,12 +4,13 @@ import {useLazyQuery} from "@apollo/client";
 import {useContext, useEffect} from "react";
 import {GET_OPERATIONS} from "../model/operations/queries";
 import _ from "lodash";
-import {useRouteMatch} from "react-router-dom";
+import {useParams, useRouteMatch} from "react-router-dom";
 import {AnalyticIO} from "../services/io/IOProvider";
 import {GET_SETTING} from "../model/setting/queries";
 
 const useOperations = (props?: any) => {
-    const {t} = useLocale(translations)
+    const {locale} = useParams<any>()
+    const {t, lang} = useLocale(translations, locale)
     const [fetch, {loading, data, error}] = useLazyQuery(GET_OPERATIONS, {fetchPolicy: "network-only"})
     const [getSetting, {
         loading: loadingSetting,
@@ -49,7 +50,7 @@ const useOperations = (props?: any) => {
             return true
         })
     }
-    if (setting?.setting) console.log(setting.setting)
+    console.log(lang)
     return {t, loading: loading || loadingSetting, setting: setting?.setting, filter, sales: data?.operations?.edges}
 }
 

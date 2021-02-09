@@ -5,7 +5,8 @@ import {useLocale} from "im-hooks";
 import translations from "../../resources/translations";
 
 const CashPay = (props: any) => {
-    const {t} = useLocale(translations)
+    const {locale} = useParams<any>()
+    const {t, lang} = useLocale(translations, locale)
     return (
         <div className={style.CashPay}>
             <div className={style.message}>{props.message||t("Pay on delivery")}</div>

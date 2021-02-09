@@ -8,7 +8,8 @@ import {useLocale} from "im-hooks";
 import translations from "../resources/translations";
 
 const useStocks = () => {
-    const {t} = useLocale(translations)
+    const {locale} = useParams<any>()
+    const {t, lang} = useLocale(translations, locale)
     const {company} = useParams<any>()
     const {url} = useRouteMatch()
     const [key, setKey] = useState<string>()

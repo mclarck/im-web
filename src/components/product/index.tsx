@@ -5,7 +5,8 @@ import translations from "../../resources/translations";
 import React from "react";
 
 const Product = (props: any) => {
-    const {t} = useLocale(translations);
+    const {locale} = useParams<any>()
+    const {t, lang} = useLocale(translations, locale);
     const {article, product, descriptions} = useProduct(props);
     return (
         <Article

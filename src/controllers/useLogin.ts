@@ -8,7 +8,8 @@ import {useParams} from "react-router-dom";
 import translations from "../resources/translations";
 
 const useLogin = (arg?: any) => {
-    const {t} = useLocale(translations)
+    const {locale} = useParams<any>()
+    const {t, lang} = useLocale(translations, locale)
     const {company} = useParams<any>()
     const {goTo} = useLink()
     const {register, handleSubmit} = useForm()
