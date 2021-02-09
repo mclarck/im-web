@@ -1,9 +1,9 @@
 import {useLocale} from "im-hooks";
 import useLink from "../../services/useLink";
 import useUrl from "../../services/useUrl";
-import {useCallback, useEffect, useState} from "react";
-import {useRef} from "react";
+import {useCallback, useEffect, useRef, useState} from "react";
 import translations from "../../resources/translations";
+import {useParams} from "react-router-dom";
 
 const usePopMenu = () => {
     const {locale} = useParams<any>()

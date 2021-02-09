@@ -3,6 +3,7 @@ import React from "react"
 import style from "./style.module.css"
 import {useLocale} from "im-hooks";
 import translations from "../../resources/translations";
+import {useParams} from "react-router-dom";
 
 const CashPay = (props: any) => {
     const {locale} = useParams<any>()
