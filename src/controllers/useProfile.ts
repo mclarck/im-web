@@ -7,7 +7,8 @@ import {useParams} from "react-router-dom";
 import translations from "../resources/translations";
 
 const useProfile = ()=>{
-    const {t} = useLocale(translations)
+    const {locale} = useParams<any>()
+    const {t} = useLocale(translations, locale)
     const {company} = useParams<any>()
     const [getClient, {data: auth, loading: loadingClient, error: errorClient}]: any = useLazyQuery(GET_CLIENT);
 

@@ -3,9 +3,11 @@ import React from "react"
 import style from "./style.module.css"
 import {useLocale} from "im-hooks";
 import translations from "../../resources/translations";
+import {useParams} from "react-router-dom";
 
 const CashPay = (props: any) => {
-    const {t, lang} = useLocale(translations)
+    const {locale} = useParams<any>()
+    const {t} = useLocale(translations, locale)
     return (
         <div className={style.CashPay}>
             <div className={style.message}>{props.message||t("Pay on delivery")}</div>

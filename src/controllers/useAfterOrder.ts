@@ -2,9 +2,11 @@ import useCartModel from "../model/cart";
 import useLink from "../services/useLink";
 import {useLocale} from "im-hooks";
 import translations from "../resources/translations";
+import {useParams} from "react-router-dom";
 
 const useAfterOrder = () => {
-    const {t} = useLocale(translations)
+    const {locale} = useParams<any>()
+    const {t} = useLocale(translations, locale)
     const cart = useCartModel()
     const {goTo} = useLink()
 

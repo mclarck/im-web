@@ -5,9 +5,11 @@ import {useContext, useState} from "react"
 import {OpenStreetMapProvider} from "leaflet-geosearch";
 import {RestClient} from "../services/database";
 import translations from "../resources/translations";
+import {useParams} from "react-router-dom";
 
 const useRegister = (auth?: any) => {
-    const {t} = useLocale(translations)
+    const {locale} = useParams<any>()
+    const {t} = useLocale(translations, locale)
     const {goTo, link} = useLink()
     const {register, handleSubmit} = useForm()
     const [preview, setPreview] = useState<any>(auth?.address?.location)

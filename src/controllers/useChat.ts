@@ -1,34 +1,39 @@
 import {useLocale} from "im-hooks";
 import {useParams} from "react-router-dom";
-import {useCallback, useContext, useEffect, useRef, useState} from "react";
-import {Manager} from "socket.io-client"
-import conf from "../resources/conf";
-import {useLazyQuery} from "@apollo/client";
-import {GET_CLIENT} from "../model/client/queries";
-import {RestClient, Store} from "../services/database";
+import {useContext, useEffect, useState} from "react";
+import {Store} from "../services/database";
 import moment from "moment";
 import _ from "lodash";
-import useNotification from "../services/useNotify";
 import translations from "../resources/translations";
+import {ChatIO} from "../services/io/IOProvider";
 
 
 const useChat = () => {
-    const {t, lang} = useLocale(translations)
+    const {locale} = useParams<any>()
+    const {t, lang} = useLocale(translations, locale)
     const {company} = useParams<any>()
-    const [getClient, {data: auth, loading: loadingClient, error: errorClient}]: any = useLazyQuery(GET_CLIENT);
     const support = `${company}@${t("support")}`
-    const io = useRef<SocketIOClient.Socket>()
-    const rest = useContext(RestClient)
     const [msg, setMsg] = useState<any>()
-    const {notify} = useNotification()
     const store = new Store(company)
+    const chatIO = useContext(ChatIO)
+    const [dest] = useState<any>(() => ({username: company, email: company, phone: company}))
+    const [sender] = useState<any>(() => store.getVal("auth"))
 
-    const mapMsg = _.map(msg, (m) => {
-        if (!auth?.client) return []
-        const isSender = m?.sender?.phone === auth?.client?.phone
+    const isMsgWithCurrentDest = (m: any) => {
+        return (m?.sender?.phone === dest?.phone && m?.dest?.phone === sender?.phone) ||
+            (m?.sender?.phone === sender?.phone && m?.dest?.phone === dest?.phone);
+
+    }
+    const filterMsg = () => _.filter(msg, (m) => isMsgWithCurrentDest(m))
+    const mapMsg = () => _.map(filterMsg(), (m) => {
+        const isSender = m?.sender?.phone === sender?.phone
         const created = moment(m?.created).locale(lang).calendar()
         return {...m, isSender, created}
     })
+
+    const onMsg = (payload: any) => {
+        fetchMsg()
+    }
 
     const clearMsg = () => {
         store.setVal("chat", [])
@@ -41,67 +46,41 @@ const useChat = () => {
     }
 
     const send = (msg: any) => {
-        const payload = {
-            sender: auth?.client,
-            dest: {username: company, phone: company},
-            room: company,
-            created: moment().format(),
-            content: msg
-        }
-        io.current?.emit("message", payload)
-    }
-
-    const sendToServer = async (msg: any) => {
-        try {
-            return await rest?.request("POST", "/api/chats", msg)
-        } catch (e) {
-            console.log(e.message)
-            return e
+        if (dest && msg) {
+            const payload = {
+                sender: sender,
+                dest: dest,
+                room: company,
+                created: moment().format(),
+                content: msg
+            }
+            if (chatIO) chatIO.emit("message", payload)
         }
     }
-
-    const loadIo = useCallback(() => {
-        if (auth?.client) {
-            const manager = new Manager(conf.io.url, conf.io.options)
-            const socket = manager.socket("/chat")
-            socket.emit("join", {room: company})
-            socket.emit("register", {content: {...auth?.client}})
-            socket.on("message", async (msg: any) => {
-                try {
-                    if (!store.hasVal("chat")) store.setVal("chat", [])
-                    if (msg?.sender?.phone !== auth?.client?.phone) {
-                        notify({
-                            id: "message",
-                            body: msg?.content
-                        })
-                    }
-                    store.addVal("chat", msg)
-                    fetchMsg()
-                    await sendToServer(msg)
-                } catch (e) {
-                    console.log(e.message)
-                }
-            })
-            io.current = socket
-        }
-    }, [auth])
-
-    const loadClient = useCallback(() => {
-        const item = store.getVal("auth")
-        if (item) getClient({variables: {id: item?.id}})
-    }, [getClient])
-
     useEffect(() => {
-        loadClient()
-        loadIo()
-        if (auth?.client) fetchMsg()
-        return () => {
-            if (io.current) io.current?.disconnect()
+        fetchMsg()
+        if (chatIO) {
+            chatIO.emit("register", {content: {...sender}})
+            chatIO.on("message", onMsg)
         }
-    }, [loadClient, loadIo, company])
-
-
-    if (errorClient) console.log(errorClient.message)
-    return {t, send, msg: mapMsg, clearMsg, support, company, auth: auth?.client, loading: loadingClient}
+        return () => {
+            if (chatIO) {
+                chatIO.off("message", onMsg)
+                console.log('remove listeners')
+            }
+        }
+    }, [])
+    return {
+        t,
+        support,
+        send,
+        filterMsg,
+        msg,
+        mapMsg,
+        clearMsg,
+        title: support,
+        company,
+        auth: sender
+    }
 }
 export default useChat

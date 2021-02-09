@@ -33,8 +33,13 @@ const useStocks = () => {
         cart.add(order)
         fetch()
     }
+
+    const buy = (order: any) => {
+        console.log(order)
+    }
+
     if (error) console.log(error.message)
-    return {company, stocks, loading, key, filter, onSearch, addToCart}
+    return {company, stocks, loading, key, filter, onSearch, buy, addToCart}
 }
 
 export default useStocks

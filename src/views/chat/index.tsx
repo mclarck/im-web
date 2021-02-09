@@ -5,10 +5,15 @@ import useChat from "../../controllers/useChat";
 import {BiSupport} from "react-icons/bi"
 
 const Chat = (props: any) => {
-    const {support, clearMsg, msg, send} = useChat()
+    const {clearMsg, title, mapMsg, send} = useChat()
     return (
         <div className={style.Chat}>
-            <ChatBox icon={<BiSupport/>} title={support} messages={msg} onClose={clearMsg} onSend={send}/>
+            <ChatBox
+                icon={<BiSupport/>}
+                title={title}
+                messages={mapMsg()}
+                onClose={clearMsg}
+                onSend={send}/>
         </div>
     );
 };

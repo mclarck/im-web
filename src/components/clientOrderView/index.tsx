@@ -6,7 +6,7 @@ import useClientOrderView from "../../controllers/useClientOrderView";
 import {Billing, OrderState} from "im-ui-core";
 
 const ClientOrderView = (props: any) => {
-    const {bills, states, state} = useClientOrderView(props.cart)
+    const {bills} = useClientOrderView(props.cart)
     return (
         <React.Fragment>
             {_.map(props.cart, (order: any, index) => {
@@ -20,7 +20,7 @@ const ClientOrderView = (props: any) => {
                 <Billing bills={bills}/>
             </div>
             <div className={style.status}>
-                <OrderState states={states} active={state}/>
+                <OrderState states={props.states} active={props.state}/>
             </div>
         </React.Fragment>
     )

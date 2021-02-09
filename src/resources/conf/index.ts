@@ -6,7 +6,7 @@ const conf = {
         url: "http://192.168.0.227:8000",
     },
     io: {
-        url: "ws://192.168.0.227:5000",
+        url: "ws://192.168.0.227:8080",
         options: { transports: ["websocket"] },
     },
 };

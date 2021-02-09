@@ -7,18 +7,22 @@ import useCartModel, {GET_CART_ITEMS} from "../model/cart";
 import {GET_CLIENT} from "../model/client/queries";
 import {useParams} from "react-router-dom";
 import translations from "../resources/translations";
+import {AnalyticIO} from "../services/io/IOProvider";
 
 const useCart = () => {
-    const {t} = useLocale(translations)
+    const {locale} = useParams<any>()
+    const {t} = useLocale(translations, locale)
     const {company} = useParams<any>()
     const cart = useCartModel()
     const [getCart, {data, error}] = useLazyQuery(GET_CART_ITEMS);
     const [getClient, {data: auth, loading: loadingClient, error: errorClient}]: any = useLazyQuery(GET_CLIENT);
+    const [dest] = useState<any>(() => ({username: company, email: company, phone: "analytic@" + company}))
     const file = useFile()
     const {subTotal, shipment, amount} = useCalculator(data?.items)
     const rest = useContext(RestClient)
     const [loadingOperation, setLoadingOperation] = useState(false)
     const [orderSent, setOrderStatus] = useState(false)
+    const analIO = useContext(AnalyticIO)
 
     if (error) console.log(error.message)
     if (errorClient) console.log(errorClient.message)
@@ -37,6 +41,12 @@ const useCart = () => {
         {name: t("Total"), value: amount(), istotal: true},
     ];
 
+    const onOrderSent = (order: any) => {
+        if (analIO) {
+            analIO.emit("message", {sender: auth?.client, dest: dest, content: {title: "new order", ...order}})
+        }
+    }
+
     const shortAddress = (address: any) => address ? `${address?.apt}, ${address?.street} ${address?.number}` : null
 
     const send = async () => {
@@ -50,7 +60,9 @@ const useCart = () => {
                 amount: parseFloat(amount()),
             }
             const res = await rest?.request("POST", "/api/operations", operation)
+            const order = await res.json()
             setOrderStatus(res.ok)
+            onOrderSent(order)
         } catch (e) {
             console.log(e.message)
         } finally {

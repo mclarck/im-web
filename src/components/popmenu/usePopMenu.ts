@@ -4,9 +4,11 @@ import useUrl from "../../services/useUrl";
 import {useCallback, useEffect, useState} from "react";
 import {useRef} from "react";
 import translations from "../../resources/translations";
+import {useParams} from "react-router-dom";
 
 const usePopMenu = () => {
-    const {t} = useLocale(translations)
+    const {locale} = useParams<any>()
+    const {t} = useLocale(translations, locale)
     const {goTo} = useLink()
     const {getUrl} = useUrl()
     const [shown, showMenu] = useState<boolean>(false)
