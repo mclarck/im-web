@@ -1,6 +1,7 @@
 .Register,
 .After {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+  overflow: hidden; }
   .Register .register,
   .Register .after,
   .After .register,
@@ -9,7 +10,8 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    height: 100%; }
+    height: 100%;
+    overflow: auto; }
   .Register .after,
   .After .after {
     display: flex;

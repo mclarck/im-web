@@ -20,7 +20,7 @@ function App() {
                         <Route path={getPath("/login")} component={Login} exact/>
                         <Route path={getPath("/logout")} component={Logout} exact/>
                         <Route path={getPath("/register")} component={Register} exact/>
-                        <Route path={getPath("/")} component={() => <Redirect to={getUrl("/stocks")}/>} exact/>
+                        <Route path={getPath()} component={() => <Redirect to={getUrl("/stocks")}/>} exact/>
                     </Switch>
                 </SocketIOProvider>
             </RestProvider>

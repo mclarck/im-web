@@ -3,11 +3,13 @@
 .Register,
 .After {
   box-sizing: border-box;
+  overflow: hidden;
   .register,
   .after {
     @include flex;
     justify-content: center;
     height: 100%;
+    overflow: auto;
   }
 
   .after {

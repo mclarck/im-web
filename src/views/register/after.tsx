@@ -12,9 +12,9 @@ const AfterRegister = (props: any) => {
         <div className={style.icon}>
           <BsFillPersonCheckFill />
         </div>
-        <div className={style.message}>{t("You have been registered!")}</div>
+        <div className={style.message}>{t("You have been registered")}</div>
         <div className={style.link}>
-          <Link to={link("/stocks")}>{t("Continue shopping!")}</Link>
+          <Link to={link("/stocks")}>{t("Continue shopping")}</Link>
         </div>
       </div>
     </div>

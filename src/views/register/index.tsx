@@ -104,8 +104,8 @@ const Register = (props: any) => {
                 <Map
                     bounds={bounds}
                     address={{location: preview}}
-                    onconfirm={confirm}
-                    onclose={onclose}
+                    onConfirm={confirm}
+                    onClose={onclose}
                 />
             )}
             {loading && <Loader/>}

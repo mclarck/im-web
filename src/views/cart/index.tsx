@@ -31,7 +31,7 @@ const Cart = (props: any) => {
     } else if (!hasOrder) {
         return <NoCart/>;
     } else if (orderSent) {
-        return <AfterOrder message={t("Order has been sent!")}/>;
+        return <AfterOrder message={t("Order has been sent")}/>;
     } else {
         return (
             <div className={style.Cart}>
