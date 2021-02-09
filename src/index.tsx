@@ -13,9 +13,9 @@ import 'moment/locale/pt'
 
 ReactDOM.render(
     <React.StrictMode>
-        <Router>
+        <Router basename="/market">
             <Switch>
-                <Route path="/:company" component={App}/>
+                <Route path="/:locale/:company" component={App}/>
                 <Route path="/" component={Error404} exact/>
             </Switch>
         </Router>
