@@ -63,7 +63,7 @@ const useIO = () => {
     const onAnalEvent = (payload: any) => {
         const status = payload?.content?.status
         const id = payload?.content?.id
-        // playSystem()
+        playSystem()
         notice.addNotification({
             title: `${payload?.sender?.username}`,
             message: `order ${id} is ${status}`,
