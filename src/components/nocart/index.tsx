@@ -3,9 +3,11 @@ import style from "./style.module.css";
 import { useLocale } from "im-hooks";
 import { MdRemoveShoppingCart } from "react-icons/md";
 import translations from "../../resources/translations";
+import {useParams} from "react-router-dom";
 
 const NoCart = (props: any) => {
-  const { t } = useLocale(translations);
+  const {locale} = useParams<any>()
+  const {t} = useLocale(translations, locale)
   return (
     <div className={style.NoCart}>
       <div className={style.content}>
