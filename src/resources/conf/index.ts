@@ -1,12 +1,12 @@
 const conf = {
     gql: {
-        url: "http://api.inmarketify.ml:8000/api/graphql",
+        url: "http://api.inmarketify.ml/api/graphql",
     },
     rest: {
-        url: "http://api.inmarketify.ml:8000",
+        url: "http://api.inmarketify.ml",
     },
     io: {
-        url: "ws://api.inmarketify.ml:8080",
+        url: "ws://io.inmarketify.ml",
         options: { transports: ["websocket"] },
     },
 };
